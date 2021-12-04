@@ -1,0 +1,22 @@
+.cS {
+  height: 300vh;
+}
+.cS h1 {
+  font-size: 12em;
+  color: transparent;
+  -webkit-text-stroke-width: 0.01em;
+  -webkit-text-stroke-color: black;
+  position: sticky;
+  top: 0;
+}
+.cS h1 span {
+  position: absolute;
+  top: 0;
+}
+.cS h1 span:last-of-type {
+  color: #000;
+  -webkit-clip-path: inset(100% 0 0 0);
+          clip-path: inset(100% 0 0 0);
+}
+
+/*# sourceMappingURL=clipScroll.css.map */

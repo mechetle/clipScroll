@@ -1,28 +1,5 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "raleway", sans-serif;
-  }
-section {
-  height: 300vh;
-}
-
-h1 {
-  font-size: 12em;
-  color: transparent;
-  -webkit-text-stroke-width: 0.01em;
-  -webkit-text-stroke-color: black;
-  position: sticky;
-  top: 0;
   margin: 0;
-  
-  span {
-    position: absolute;
-    top: 0;
-  
-    &:last-of-type {
-      color: #000;
-      clip-path: inset(100% 0 0 0);
-    }
-  }
+  padding: 0;
+  font-family: "raleway", sans-serif;
 }
