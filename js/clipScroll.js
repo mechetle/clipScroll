@@ -8,10 +8,12 @@ Author: Mechetle
 let cS = {
   options: {
     debug: false,
+    class: "cS",
+    useExistingListener: false,
   },
 };
 
-let wrapper = document.querySelectorAll(".cS");
+let wrapper = document.querySelectorAll("." + cS.options.class);
 let heightOfWin = window.innerHeight;
 // Update this everytime on window change size
 window.addEventListener('resize', () => {
@@ -22,13 +24,20 @@ function pixelToInt(px) {
   return px.replace("px", "");
 }
 
+function htmlStringToNode(htmlString) {
+  var template = document.createElement('div');
+  template.innerHTML = htmlString.trim();
+  return template.firstChild; 
+}
+
 // Preparing already existing stuff for magik:
 function init(child) {
   // creating two span tags with the innerHtml of the h1 to prepare for shit:
   let span = document.createElement("span");
   let innerHTML = child.innerHTML;
   console.log(innerHTML);
-  let blah = document.createTextNode(innerHTML);
+  
+  let blah = htmlStringToNode(innerHTML);
 
   span.appendChild(blah);
   child.innerHTML = "";
@@ -72,7 +81,6 @@ wrapper.forEach(el => {
     lh_gap = 0;
     lh_ratio = 1;
   }
-  console.log(lh_gap);
   
 
   function updateClipping(scrollPos) {
@@ -102,16 +110,18 @@ wrapper.forEach(el => {
     }
   }
 
-  document.addEventListener('scroll', function(e) {
-    lastKnownScrollPos = window.scrollY;
+  if (!cS.options.useExistingListener) {
+    document.addEventListener('scroll', function(e) {
+      lastKnownScrollPos = window.scrollY;
 
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateClipping(lastKnownScrollPos);
-        ticking = false;
-      });
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          updateClipping(lastKnownScrollPos);
+          ticking = false;
+        });
 
-      ticking = true;
-    }
-  });
+        ticking = true;
+      }
+    });
+  }
 });
