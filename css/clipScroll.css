@@ -1,7 +1,4 @@
-.cS {
-  height: 300vh;
-}
-.cS h1 {
+.cS h1, .cS h2, .cS h3, .cS h4, .cS h5, .cS h6 {
   font-size: 12em;
   color: transparent;
   -webkit-text-stroke-width: 0.01em;
@@ -9,11 +6,11 @@
   position: sticky;
   top: 0;
 }
-.cS h1 span {
+.cS h1 span, .cS h2 span, .cS h3 span, .cS h4 span, .cS h5 span, .cS h6 span {
   position: absolute;
   top: 0;
 }
-.cS h1 span:last-of-type {
+.cS h1 span:last-of-type, .cS h2 span:last-of-type, .cS h3 span:last-of-type, .cS h4 span:last-of-type, .cS h5 span:last-of-type, .cS h6 span:last-of-type {
   color: #000;
   -webkit-clip-path: inset(100% 0 0 0);
           clip-path: inset(100% 0 0 0);
