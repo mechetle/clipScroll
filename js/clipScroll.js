@@ -1,6 +1,6 @@
 /*  
 clipScroll
-A really basic scroll mask thingo.
+A really basic scroll mask thingo for text and soon images.
 
 Author: Mechetle
 */
@@ -22,7 +22,27 @@ function pixelToInt(px) {
   return px.replace("px", "");
 }
 
+// Preparing already existing stuff for magik:
+function init(child) {
+  // creating two span tags with the innerHtml of the h1 to prepare for shit:
+  let span = document.createElement("span");
+  let innerHTML = child.innerHTML;
+  console.log(innerHTML);
+  let blah = document.createTextNode(innerHTML);
+
+  span.appendChild(blah);
+  child.innerHTML = "";
+  child.appendChild(span);
+  child.appendChild(span.cloneNode(true));
+}
+
 wrapper.forEach(el => {
+  // Getting pre-existing shit in the single child:
+  child = el.children[0];
+
+  // init
+  init(child);
+
   let heightOfWrap = el.offsetHeight;
   // Update this everytime on window change size
   window.addEventListener('resize', () => {
